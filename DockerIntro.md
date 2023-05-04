@@ -34,6 +34,7 @@ This wastes lot of hard drive  and tends to be slow.
 Pros of virtualisation:
 Separated envs,environment specific configs are possible, env configurations can be shared and reproduced reliably.
 
+
 Cons of virtualisation:
 Redundant duplication, waste of space.Performance can be slow ,boot times can be long.Reproducing on another computer/server 
 is possible but may still be tricky as you have to setup the vm exaclty on all machines.You would have to replicate everything of the vm 
@@ -54,3 +55,13 @@ Or u can build the container into something which is called an image , which u c
 
 <img width="1168" alt="Screenshot 2023-05-03 at 3 15 39 PM" src="https://user-images.githubusercontent.com/32058209/235985139-5b6d3681-8ab7-4021-b619-fa0e218fcf94.png">
 
+## Docker setup
+
+<img width="1291" alt="Screenshot 2023-05-03 at 3 32 28 PM" src="https://user-images.githubusercontent.com/32058209/236228703-7fcfe91b-690f-480f-b5f8-10e447a37bff.png">
+In linux u dont need docket desktop or docker toolbox as linux natively supports containerization and hence you can directly install Docker engine.
+For windows and macos, u need to install docker desktop or docker toolbox which has the docker engine
+__Docker Toolbox__ and __Docker Desktop__ are tools that bring docker to life in non linux os.
+
+
+Docker desktop or docker toolboxcontains Docker engine, docker daemon and a CLI
+<img width="765" alt="Screenshot 2023-05-04 at 7 54 38 PM" src="https://user-images.githubusercontent.com/32058209/236237122-70960bf9-be42-4f9f-b950-ffd31263f675.png">
