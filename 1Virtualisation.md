@@ -11,8 +11,8 @@ Hypervisor is a piece of software or firmware that creates and runs a virtual ma
 
 Types of hypervisor:
 
-     * Type 1 hypervisor(bare metal/native hypervisor) -used in                Enterprise
-     * Type 2 hypervisor(hosted hypervisor)- used in            learning,testing purpose
+     * Type 1 hypervisor(bare metal/native hypervisor) -used in Enterprise
+     * Type 2 hypervisor(hosted hypervisor)- used for learning,testing purpose
 
 __Type1 Hypervisor:__
 This hypervisor runs directly on system hardware(that's why also know as firmware).The guest OS of the VM runs above the hypervisor.
