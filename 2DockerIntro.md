@@ -24,8 +24,7 @@ Problems without containers:
 Can we not use Virtual Machines/Virtual OS instead of Containers?
 With VMs , we have our host os(Our system’s OS).On the top of that, there will be the VM’s OS.On this OS, we can install libraries, 
 dependencies and tools as well as our application encapsulated in the vm.OS needs to be installed on each of the VM,this is a serious overhead.
-
-
+All the resources like memory, ram ,cpu cores get virtualised by a hypervisor. This means the resources once allocated to a VM by the hypervisor are fixed.They cant be allocated/de-allocated on need basis.
 This wastes lot of hard drive  and tends to be slow.
 
 <img width="1068" alt="VM" src="https://user-images.githubusercontent.com/32058209/235980092-196c73d5-332a-465f-9540-f31867efa3c0.png">
@@ -39,6 +38,7 @@ Cons of virtualisation:
 Redundant duplication, waste of space.Performance can be slow ,boot times can be long.Reproducing on another computer/server 
 is possible but may still be tricky as you have to setup the vm exaclty on all machines.You would have to replicate everything of the vm 
 on the production.
+This is __hardware level Virtualisation__.All the resources like memory, ram ,cpu cores get virtualised by a hypervisor. This means the resources once allocated to a VM by the hypervisor are fixed.They cant be allocated/de-allocated on need basis.
 
 Using Containers:
 <img width="1121" alt="Screenshot 2023-05-03 at 3 09 51 PM" src="https://user-images.githubusercontent.com/32058209/235982527-8ea8f05a-4bf8-4353-9f0c-4d40e118a139.png">
@@ -47,14 +47,22 @@ Instead ,we make use built in container support which our host os has, or emulat
 We run a tool called Docker Engine(light weight tool).
 All this will be done by Docker.And we finally spin up containers.
 This contains our code and crucial tools and runtimes our code needs like nodejs .But they dont contain a bloated os or any extra tools.
-They might contain a lightweight version of an OS layer.
+They might contain a lightweight version of an OS layer..
+Also the resources from host machine can be allocated/de-allocated based on the need of the container.The container only requests for resources when it is running.When the container stops running,it returns the resources.
 
 A great thing about containers is that U can configure and describe them with a config file and u can share that file with others ,
 so that they can recreate the container 
 Or u can build the container into something which is called an image , which u can share to others.
 
 <img width="1168" alt="Screenshot 2023-05-03 at 3 15 39 PM" src="https://user-images.githubusercontent.com/32058209/235985139-5b6d3681-8ab7-4021-b619-fa0e218fcf94.png">
+<img width="362" alt="Screenshot 2023-05-06 at 3 07 41 PM" src="https://user-images.githubusercontent.com/32058209/236616249-cd17c240-04c0-488e-a709-fbab10e31517.png">
+Docker is a set of Paas.For Paas ,we usually deal with OS level.Docker does OS level virtualization.
 
+
+## Advantages of Docker
+ <img width="514" alt="Screenshot 2023-05-06 at 10 39 57 PM" src="https://user-images.githubusercontent.com/32058209/236637741-ed154360-b420-47f2-8436-6b133ef3e6e0.png">
+
+ 
 ## Docker setup
 
 <img width="1291" alt="Screenshot 2023-05-03 at 3 32 28 PM" src="https://user-images.githubusercontent.com/32058209/236228703-7fcfe91b-690f-480f-b5f8-10e447a37bff.png">
