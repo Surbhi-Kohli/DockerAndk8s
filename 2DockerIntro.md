@@ -65,3 +65,7 @@ __Docker Toolbox__ and __Docker Desktop__ are tools that bring docker to life in
 
 Docker desktop or docker toolboxcontains Docker engine, docker daemon and a CLI
 <img width="765" alt="Screenshot 2023-05-04 at 7 54 38 PM" src="https://user-images.githubusercontent.com/32058209/236237122-70960bf9-be42-4f9f-b950-ffd31263f675.png">
+
+<img width="376" alt="Screenshot 2023-05-06 at 2 41 13 PM" src="https://user-images.githubusercontent.com/32058209/236614966-0fe56d59-5b76-4ba4-9b67-4a1c833ff92a.png">
+
+
