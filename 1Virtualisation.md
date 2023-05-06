@@ -41,6 +41,6 @@ This hypervisor doess not have direct access to the host Hardware and resources.
 
 
 __Problems with Virtualization__
-   * Wastage of resources:With virtualization, we create several VMS. Resources may be allocated to a VM which might not need those.
+   * Wastage of resources:With virtualization, we create several VMS. Resources may be allocated to a VM which might not need those and we dont have the flexibility to increase/decrease allocation based on VM's needs.
    * OS installation on each VM: Each VM installs its own OS ,which consumes memory from the host.
    * Limitation on number of VMs that can be created based on the quantity of resources the host has.
