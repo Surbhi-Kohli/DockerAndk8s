@@ -9,7 +9,9 @@ We run containers that are based on images.Images are immutable.
 
 Create account on docker.Install docker desktop and sign in.This will connect ur account to docker hub.
 To get node image from remote(docker hub), run
-    ``` docker run node
+         
+         docker run node
+         
     This command will use the node image from docker hub and utilise it to create a container from this image.
     Once we do that, we will be able to use the node's interactive shell.
     
