@@ -1,3 +1,9 @@
+You can build up on a pre-built node image to create your own image on top of it.
+
+<img width="710" alt="Screenshot 2023-05-07 at 4 55 33 PM" src="https://user-images.githubusercontent.com/32058209/236674619-eb73b522-9c80-4660-9349-92579f72a8b8.png">
+
+We will use a dummy nodejs project to build an image out of it.
+
 Add a dockerfile to your node application
 # all these commands are used for image setup.
 
@@ -55,3 +61,20 @@ CMD ["node","server.js"]
 
 # Docker extension of vscode helps in writing the docker file
 ## Docker file contains a set of instructions to build our own image
+
+****************************************
+
+## Running a container based on your own image
+
+docker build <path to dockerFile>
+
+
+        docker build .//create custom image based on the dockerfile
+
+  <img width="817" alt="Screenshot 2023-05-07 at 5 09 40 PM" src="https://user-images.githubusercontent.com/32058209/236675248-d94b6d04-c22e-49ff-98f3-5edf8e2c6ebf.png">
+Now to run the container:
+        docker run b9a91fa63e227d41043a48a9549260ef011a58c3649fc3acafc34b1ce1542a61   
+  
+  This will start a container that keeps running.Under the hood the server.js file runs.
+  
+  
