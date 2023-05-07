@@ -73,8 +73,44 @@ docker build <path to dockerFile>
 
   <img width="817" alt="Screenshot 2023-05-07 at 5 09 40 PM" src="https://user-images.githubusercontent.com/32058209/236675248-d94b6d04-c22e-49ff-98f3-5edf8e2c6ebf.png">
 Now to run the container:
-        docker run b9a91fa63e227d41043a48a9549260ef011a58c3649fc3acafc34b1ce1542a61   
+        docker run b9a91fa63e227d41043a48a9549260ef011a58c3649fc3acafc34b1ce1542a61   (docker id)
   
-  This will start a container that keeps running.Under the hood the server.js file runs.
+  This will start a container that keeps running.Under the hood the server.js file runs which is an ongoing process that doesn't finish.
+    But if you visit localhost, you won't see the website,even though we exposed the port as per the dockerfile.
+        
+        To shut the container,open a new terminal and run
+                docker ps //gives only the running processes
+                docker stop <container name received from previous command>
+        
+    # Why were we not able to listen on this custom container?
+        Because an important step is missing here.The EXPOSE step in Dockerfile is just for documentation purpose.It doesn't do anything.This
+        instruction is optional.
+        Important thing here is when you execute docker run, u add special option (-p= publish)
+                         docker run -p <localport>:<internal docker port> <containerId>
+        
+        This allows us to tell docker, under which local port on our machine, the internal docker specific port should be accessible.
+                           docker run -p 3000:80 b9a91fa63e227d41043a48a9549260ef011a58c3649fc3acafc34b1ce1542a61 
+        EXPOSE & A Little Utility Functionality
+In the last lecture, we started a container which also exposed a port (port 80).
+
+I just want to clarify again, that EXPOSE 80 in the Dockerfile in the end is optional. It documents that a process in the container will expose this port. But you still need to then actually expose the port with -p when running docker run. So technically, -p is the only required part when it comes to listening on a port. Still, it is a best practice to also add EXPOSE in the Dockerfile to document this behavior.
+
+As an additional quick side-note: For all docker commands where an ID can be used, you don't always have to copy / write out the full id.
+
+You can also just use the first (few) character(s) - just enough to have a unique identifier.
+
+So instead of
+
+docker run abcdefg
+you could also run
+
+docker run abc
+or, if there's no other image ID starting with "a", you could even run just:
+
+docker run a
+This applies to ALL Docker commands where IDs are needed.
+
+
+        
   
   
