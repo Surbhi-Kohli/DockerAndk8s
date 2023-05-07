@@ -1,7 +1,7 @@
 ## Images and Containers ,what and why
 
 Image is a sharable package with all setup instructions and runable code,while the container is a concrete running instance of such an image.
-We run containers that are based on images.
+We run containers that are based on images.Images are immutable.
 <img width="1311" alt="Screenshot 2023-05-04 at 8 29 13 PM" src="https://user-images.githubusercontent.com/32058209/236247357-f88b7448-b687-4489-bbdf-f00e37706b13.png">
 <img width="1265" alt="Screenshot 2023-05-04 at 8 29 41 PM" src="https://user-images.githubusercontent.com/32058209/236247510-39b69be9-d83b-478a-a3d9-de68daebb8a8.png">
 
