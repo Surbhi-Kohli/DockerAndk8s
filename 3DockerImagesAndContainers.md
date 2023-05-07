@@ -3,6 +3,7 @@
 Image is a sharable package with all setup instructions and runable code,while the container is a concrete running instance of such an image.
 We run containers that are based on images.Images are immutable.
 <img width="1311" alt="Screenshot 2023-05-04 at 8 29 13 PM" src="https://user-images.githubusercontent.com/32058209/236247357-f88b7448-b687-4489-bbdf-f00e37706b13.png">
+
 <img width="1265" alt="Screenshot 2023-05-04 at 8 29 41 PM" src="https://user-images.githubusercontent.com/32058209/236247510-39b69be9-d83b-478a-a3d9-de68daebb8a8.png">
 
 ## Using Pre-Built image
@@ -12,8 +13,8 @@ To get node image from remote(docker hub), run
          
          docker run node
          
-    This command will use the node image from docker hub and utilise it to create a container from this image.
-    Once we do that, we will be able to use the node's interactive shell.
+This command will use the node image from docker hub and utilise it to create a container from this image.Containers are running instances of an image.Images are used to hold all the logic and code a container needs
+Once we do that, we will be able to use the node's interactive shell.
     
 
           Unable to find image 'node:latest' locally
@@ -30,10 +31,17 @@ To get node image from remote(docker hub), run
           Status: Downloaded newer image for node:latest
           
           
-       Once the download , it will run it as a container .
+       Once the download , it will run it as a container .Did our above container run? Yes, it did,but node is just
+       a software.And we can execute node to get an interactive shell to insert command.But sonce a container is isolated from the surrounding env,and just because there might be some interactive shell running inside of a container,it doesn't mean that this shell is exposed to us by the conatiner.
+       Nonetheless,the container was created and you can check that by running the following.
        
-       ``` docker ps -a
-       ps=processes.The above command shows all processes(containers) that docker created.
+           docker ps -a
+       ps=processes.The above command shows (-a) all processes(containers) that docker created.
        
-       
-       docker run -it node
+       If we add -it flag, this would mean that we want to expose an "interactive" session from inside the container 
+       to our hosting machine. 
+          docker run -it node
+This would expose the node repl and we can use the node apis there.
+
+Important thing to note here is that the node is actually running inside the container,but is being exposed to the host machine by the -it flag,so that we can interact with the container and with the node running inside the container.
+Node is not running on the host machine.
