@@ -7,8 +7,9 @@
  # Understanding Image layers
  
  Consider the following Dockerfile
+ #
  <img width="423" alt="Screenshot 2023-05-10 at 9 25 54 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/01a6788c-c011-40cb-b348-0a5643458b6a">
-
+#
  Images are layer based.When u rebuild an image, only the instructions that changes and all the instructions thereafter (in the dockerfile) are re-evaluated
  Without any change in code or dockerfile,if you rebuild the image:
  
@@ -20,12 +21,12 @@ This is called __layer based architecture__.Every instruction of Dockerfile repr
 Image is read only.
 #
 <img width="569" alt="Screenshot 2023-05-10 at 9 51 39 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/039245ff-04e4-4660-af1d-95892307bae9">
-
+#
 In case u update something in your code ie in the server.js file of the example code, docker detects that a file has changed, so it re-runs the COPY instruction also all the instructions there after.Docker is not able to tell whether re-running of npm install is required or not after the code change.It does not do a deep analysis of which file changed where, and if the change could impact 'npm install' instruction.
 
 #
 <img width="723" alt="Screenshot 2023-05-10 at 9 23 47 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/d81a645e-d132-4124-9ae1-b4e902c82a75">
-
+#
 
 Whenever one layer(instruction) changes, all the subsequent layers are re-executed on rebuild.
 
@@ -36,7 +37,25 @@ But as of now in our Dockerfile, there is a scope for optimization.Whenever anyt
 So we can update our Dockerfile as follows:
 #
 <img width="550" alt="Screenshot 2023-05-10 at 9 41 20 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/7e814749-3f42-4b21-adcf-6b57167dbfc5">
+#
 Now it will be more performant
+
 #
 <img width="722" alt="Screenshot 2023-05-10 at 9 58 06 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/48ab6d22-20cf-492e-aea9-b8d2c35b51e2">
+#
+Container does not copy the code and env into itself in a file.It is not that every container takes the code and env from image and maintains a copy.
+Containers use the env stored in their image and then just add the extra layer of running server(in our demo code cas, it is node server)
+
+Q: Why do we have "Images" and "Containers"? Why not just "Containers"?
+A: This allows multiple containers to be based on same image without interfering with each other.
+
+Q: What does "Isolation" mean in the context of containers?
+A: Containers are separated from each other and have no shared data or state by default.
+
+Q: What are "Layers" in the context of images?
+A: Every instruction in an image creates a cacheable layer- layers help with image re-building and sharing.
+
+Q:What does this command do? 'docker run node'
+A: It creates and runs a container based on node image.
+
 
