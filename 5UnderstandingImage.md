@@ -22,9 +22,12 @@ Image is read only.
 
 In case u update something in your code ie in the server.js file of the example code, docker detects that a file has changed, so it re-runs the COPY instruction also all the instructions there after.Docker is not able to tell whether re-running of npm install is required or not after the code change.It does not do a deep analysis of which file changed where, and if the change could impact 'npm install' instruction.
 
+
 <img width="723" alt="Screenshot 2023-05-10 at 9 23 47 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/d81a645e-d132-4124-9ae1-b4e902c82a75">
 
+
 Whenever one layer(instruction) changes, all the subsequent layers are re-executed on rebuild.
+
 
 The layer architecture exists to speed up the creation of images, since docker only rebuilds/re-executes whatever needs to be .
 
