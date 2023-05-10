@@ -9,7 +9,7 @@
  Consider the following Dockerfile
  #
  <img width="423" alt="Screenshot 2023-05-10 at 9 25 54 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/01a6788c-c011-40cb-b348-0a5643458b6a">
-#
+ #
  Images are layer based.When u rebuild an image, only the instructions that changes and all the instructions thereafter (in the dockerfile) are re-evaluated
  Without any change in code or dockerfile,if you rebuild the image:
  
@@ -19,6 +19,7 @@ is not changed,so it does not need to execute the instructions again.Docker will
 This is because,when you build an image,docker caches every instruction's result,which can be used later .
 This is called __layer based architecture__.Every instruction of Dockerfile represents a layer .Every image is based on multiple layers(instructions) of the dockerfile.
 Image is read only.
+
 #
 <img width="890" alt="Screenshot 2023-05-10 at 10 37 36 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/03cff3c5-2e7d-4f51-98e6-3849e1d0fb12">
 #
