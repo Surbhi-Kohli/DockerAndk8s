@@ -20,7 +20,7 @@ This is because,when you build an image,docker caches every instruction's result
 This is called __layer based architecture__.Every instruction of Dockerfile represents a layer .Every image is based on multiple layers(instructions) of the dockerfile.
 Image is read only.
 #
-<img width="569" alt="Screenshot 2023-05-10 at 9 51 39 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/039245ff-04e4-4660-af1d-95892307bae9">
+<img width="890" alt="Screenshot 2023-05-10 at 10 37 36 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/03cff3c5-2e7d-4f51-98e6-3849e1d0fb12">
 #
 In case u update something in your code ie in the server.js file of the example code, docker detects that a file has changed, so it re-runs the COPY instruction also all the instructions there after.Docker is not able to tell whether re-running of npm install is required or not after the code change.It does not do a deep analysis of which file changed where, and if the change could impact 'npm install' instruction.
 
