@@ -57,23 +57,23 @@ We can run a container in detached mode  by specifying -d flag
         If we want to do that then we need to be in interactive mode.
         
   **Refer Python project for more details**
-          #this is an app that wil be printing to terminal.So running container in background 
-  #would not be good.We want to run the container in attached mode here.
-  # But there is a catch here, when we run docker run <image>,we would be in attached mode but we would not be able to 
-  # give user input.So we would need to run by explicitly passing --i or --interactive flag.
-  # This would keep the STDIN open even if not attached.With this flag, we will be able to provides input.
-  # We usually combine --i with --t OR --tty=allocates a pseudo-tty,ie creates a terminal 
-  # both flags combined become -it
-  #  docker run -it <image>
-  #  docker run -d -it <image> wont work
-  ##
-  # Now we see the container is stopped and get its name via 'docker ps -a'
-  # We can start the stopped container in attached mode by passing -a flag
-  # 'docker start -a <container name>'
-  # It will just take 1 input and after that behaves starngely.DOesn't take user input.
-  # So we will stop this  'docker stop <container name>'
-  # So we will start the container in interactive mode
-  # 'docker start -a -i <container name>', we can also do 'docker start -i <container name>' 
+  /*      this is an app that wil be printing to terminal.So running container in background 
+  would not be good.We want to run the container in attached mode here.
+   But there is a catch here, when we run docker run <image>,we would be in attached mode but we would not be able to 
+   give user input.So we would need to run by explicitly passing --i or --interactive flag.
+   This would keep the STDIN open even if not attached.With this flag, we will be able to provides input.
+   We usually combine --i with --t OR --tty=allocates a pseudo-tty,ie creates a terminal 
+   both flags combined become -it
+    docker run -it <image>
+    docker run -d -it <image> wont work
+  
+   Now we see the container is stopped and get its name via 'docker ps -a'
+   We can start the stopped container in attached mode by passing -a flag
+   'docker start -a <container name>'
+   It will just take 1 input and after that behaves starngely.DOesn't take user input.
+   So we will stop this  'docker stop <container name>'
+   So we will start the container in interactive mode
+   'docker start -a -i <container name>', we can also do 'docker start -i <container name>' */
         
  ## Deleting Images and Containers:
    **docker rm** cane be used to remove containers
