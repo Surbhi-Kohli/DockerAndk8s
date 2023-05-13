@@ -101,5 +101,119 @@ You can remove an image via `docker rmi <imageid>`
          docker rmi <imageid1> <imageid2> <imageid3> <imageid4>
         If u wanna remove all the images that are not being used in containers , u can do the following:
                docker image prune
-
         
+        ## Removing stopped containers automatically
+        You can use docker run --help to check for all config options
+             docker run --rm flag =automatically removes the container when it exits
+        
+          docker run --rm <Container name>
+        
+        Then if u stop the container and do docker ps -a, you wont see the container.
+        
+      ## A look behind the scene: Inspecting Images  
+        
+If you want to know details about an image, you can use a command to do that: `docker image inspect <imageID>`
+        You will get a long output with info about your image
+        
+        
+        
+                  [
+                    {
+                        "Id": "sha256:2db688bf8ad54f97e307487c4ed4983861232fba5f151dc55302fbe650bedac7", //id of the image
+                        "RepoTags": [],
+                        "RepoDigests": [],
+                        "Parent": "",
+                        "Comment": "buildkit.dockerfile.v0",
+                        "Created": "2023-05-10T16:27:25.181424301Z",
+                        "Container": "",
+                        "ContainerConfig": {
+                            "Hostname": "",
+                            "Domainname": "",
+                            "User": "",
+                            "AttachStdin": false,
+                            "AttachStdout": false,
+                            "AttachStderr": false,
+                            "Tty": false,
+                            "OpenStdin": false,
+                            "StdinOnce": false,
+                            "Env": null,
+                            "Cmd": null,
+                            "Image": "",
+                            "Volumes": null,
+                            "WorkingDir": "",
+                            "Entrypoint": null,
+                            "OnBuild": null,
+                            "Labels": null
+                        },
+                        "DockerVersion": "",
+                        "Author": "",
+                        "Config": {//configurations, eg the ports that will be exposed
+                            "Hostname": "",
+                            "Domainname": "",
+                            "User": "",
+                            "AttachStdin": false,
+                            "AttachStdout": false,
+                            "AttachStderr": false,
+                            "ExposedPorts": {
+                                "80/tcp": {}
+                            },
+                            "Tty": false,
+                            "OpenStdin": false,
+                            "StdinOnce": false,
+                            "Env": [
+                                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                                "NODE_VERSION=20.0.0",
+                                "YARN_VERSION=1.22.19"
+                            ],
+                            "Cmd": [
+                                "node",
+                                "server.js"
+                            ],
+                            "ArgsEscaped": true,
+                            "Image": "",
+                            "Volumes": null,
+                            "WorkingDir": "/app",
+                            "Entrypoint": [
+                                "docker-entrypoint.sh"
+                            ],
+                            "OnBuild": null,
+                            "Labels": null
+                        },
+                        "Architecture": "amd64",
+                        "Os": "linux",//as we are building on a node image,that builds on some os
+                        "Size": 1009026709,
+                        "VirtualSize": 1009026709,
+                        "GraphDriver": {
+                            "Data": {
+                                "LowerDir": "/var/lib/docker/overlay2/379miiekd7t9w4avbtr1wei5i/diff:/var/lib/docker/overlay2/tp39pz9pb1bbk36q70ff6uo3m/diff:/var/lib/docker/overlay2/ajbnh0iosl3lu8o2qbbuzs9f4/diff:/var/lib/docker/overlay2/3e05e8e0400aa9421e7c887cd26bf25769825efe56681b95ca747571108cc4a8/diff:/var/lib/docker/overlay2/6a37590ebc779bef1e444d5c8501e8d05c97f256806d5a317c835c9eb52d8d18/diff:/var/lib/docker/overlay2/349c2a0e1f59fe63b04a3c1668c17f4037c7f85c0dc0728780dce2fd3f188e58/diff:/var/lib/docker/overlay2/6442c7965accf8048b8791bba558a25388a6285e3b62da3383b18ba66bf4e06f/diff:/var/lib/docker/overlay2/67ae6a5a95ce56f4ed0664f92ebafd97207dd3a67a4feb38fa8a688661b7c74e/diff:/var/lib/docker/overlay2/9d376d86794312bee1dc59fd4361a21fe3b86c0b73840246683a6458b4b88dc5/diff:/var/lib/docker/overlay2/4011a7f2f6427730bce2a56b21d6edd0898e0975808ba6768a84f26677c2782c/diff:/var/lib/docker/overlay2/26cca5d99ad66d579244044fab8b2812d70f0d321d92ecc54d293c772de772ec/diff",
+                                "MergedDir": "/var/lib/docker/overlay2/ti0q9wxzb91zpbycm3osz5g5t/merged",
+                                "UpperDir": "/var/lib/docker/overlay2/ti0q9wxzb91zpbycm3osz5g5t/diff",
+                                "WorkDir": "/var/lib/docker/overlay2/ti0q9wxzb91zpbycm3osz5g5t/work"
+                            },
+                            "Name": "overlay2"
+                        },
+                        "RootFS": {
+                            "Type": "layers",
+                            "Layers": [//different instructions of dockerfile convert to layers.Even if our docker file contains 5,6 instructions, these layers are
+        ////////more because the layers also include instructions from base image.Our images uses all the layers.That makes sense.COz if node image changes
+        //our image should also be updated,
+                                "sha256:d925e0fae4e6e7ecb7df154c4cd812ea2956afa744bb6de32ea41850000fb25c",
+                                "sha256:d96e248f10e6da5516e52dd81e95137aad7c799386e9e5f8cc3e43bef094faa5",
+                                "sha256:9c42af2c6418ae14e3a7409b6eced3ea24a709a8b9933e4fab9ef732ebe2adf1",
+                                "sha256:f43725f97b9f82e6fc6809a6dbbf50892a67bd889cfbc32d9b158b5d98479f7c",
+                                "sha256:2b0668a556618ad99ff1a947dfcf7ae3788d13c18af0bcdc920f821a99c90f3d",
+                                "sha256:c49e8c2388aea35326cf749022f62c5aab28816a0d9e710c950afcd42698a8ae",
+                                "sha256:e2932bbd49ca264439961a0e30e366ecb637317b96f962f4f6d231f6e83f54d3",
+                                "sha256:f3cab218ff943f21703e9bcbf29081cc6e315a5bfcdbb90dbcdfc702a4d6889f",
+                                "sha256:698d69f3ec88a1504635ae26e6c1de11d076d90cbbb2bc8f25dbdef51b7efb6e",
+                                "sha256:ff2efbdc4a262516403f95f63383d321d79016b4e15a74e7e981f4de3c321dc5",
+                                "sha256:6634a69bd054147a35df54439c81d3f3305282231e8806e8c23b7d0c52410fa1",
+                                "sha256:f8ea5b6abe7ea7d11a4ea6b72d708a8e650146de25bbb98013a9ef771df5dae5"
+                            ]
+                        },
+                        "Metadata": {
+                            "LastTagTime": "0001-01-01T00:00:00Z"
+                        }
+                    }
+]
+        You can ofcourse also run docker image inspect on base images like node image
