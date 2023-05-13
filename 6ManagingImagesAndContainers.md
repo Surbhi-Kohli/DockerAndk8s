@@ -52,7 +52,54 @@ We can run a container in detached mode  by specifying -d flag
         
 ## Entering Interactive mode:
         
- Interactive mode is different from attached mode.If we are in attached mode, we will be able to see the output in terminal ,given by the running container.
+ **Interactive mode** is different from **attached mode**.If we are in attached mode, we will be able to see the output in terminal ,given by the running container.
         But we wont be able to give any inputs to the container.That's because **attached mode** is **listen only** mode.
         If we want to do that then we need to be in interactive mode.
+        
+  **Refer Python project for more details**
+          #this is an app that wil be printing to terminal.So running container in background 
+  #would not be good.We want to run the container in attached mode here.
+  # But there is a catch here, when we run docker run <image>,we would be in attached mode but we would not be able to 
+  # give user input.So we would need to run by explicitly passing --i or --interactive flag.
+  # This would keep the STDIN open even if not attached.With this flag, we will be able to provides input.
+  # We usually combine --i with --t OR --tty=allocates a pseudo-tty,ie creates a terminal 
+  # both flags combined become -it
+  #  docker run -it <image>
+  #  docker run -d -it <image> wont work
+  ##
+  # Now we see the container is stopped and get its name via 'docker ps -a'
+  # We can start the stopped container in attached mode by passing -a flag
+  # 'docker start -a <container name>'
+  # It will just take 1 input and after that behaves starngely.DOesn't take user input.
+  # So we will stop this  'docker stop <container name>'
+  # So we will start the container in interactive mode
+  # 'docker start -a -i <container name>', we can also do 'docker start -i <container name>' 
+        
+ ## Deleting Images and Containers:
+   **docker rm** cane be used to remove containers
+        If you try removing a running container,you wont be able to do that
+<img width="528" alt="Screenshot 2023-05-13 at 2 09 48 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/b2ec370b-a03f-427a-b764-00f88c629cdf">
+So we first of all need to stop running containers and only then can we delete those
+        <img width="818" alt="Screenshot 2023-05-13 at 2 15 24 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/95d4c020-f3d4-491e-9189-28db26a949c8">
+You can remove multiple containers in a single go via:
+           docker rm <ContainerName1> <ContainerName 2> <Container name3> <Container name4>
+        
+        Alternate way to remove all stopped containers:
+             docker container prune
+        
+    ## Deleting Images:
+            docker images 
+        This command lists all docker images
+        <img width="679" alt="Screenshot 2023-05-13 at 2 29 01 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/59d1d08e-6041-41a1-9461-33e266dbc46e">
+You can remove an image via `docker rmi <imageid>`
+        <img width="824" alt="Screenshot 2023-05-13 at 2 40 09 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/5819f630-f32f-483e-8801-461dc7dccf4c">
+        
+        But if you try removing an image that is being used by a container(even a stopped container), you will get an error message.You wont be able to delete that image.
+        You would need to remove the container first.
+        <img width="829" alt="Screenshot 2023-05-13 at 2 38 19 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/6bff6108-056a-4a70-9a9c-b8f0aae88b74">
+        You can remove more that one image manually as follows
+         docker rmi <imageid1> <imageid2> <imageid3> <imageid4>
+        If u wanna remove all the images that are not being used in containers , u can do the following:
+               docker image prune
+
         
