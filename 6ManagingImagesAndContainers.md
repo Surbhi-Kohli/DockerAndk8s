@@ -24,7 +24,7 @@ This is not a bug,this is just a different config.You can configure whether you 
 When we use 'docker start',container runs in detached mode by default, while when using 'docker run',container runs in attached mode.
 
 ## Which mode to use and why does it matter?
-Attached means that the output of the running container matters to the terminal and the termical is listening to it and  may need to show that.
+Attached means that the output of the running container matters to the terminal and the termin al is listening to it and  may need to show that.
 eg, if the container has code that should log something in terminal,that will get logged in case of attached mode and not in detached mode.
 Consider our container running the goal creation node app.If I add a goal in the app running from container, the terminal loggs the newly added goal
 <img width="954" alt="Screenshot 2023-05-11 at 9 18 09 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/9a77f1d6-791f-4e57-81a0-8054e95f3672">
@@ -46,6 +46,13 @@ We can run a container in detached mode  by specifying -d flag
   
   
   If you want to 'start' a container in attached mode
-           docker start -a <container name>
+               docker start -a <container name>
   
-  
+        
+        
+## Entering Interactive mode:
+        
+ Interactive mode is different from attached mode.If we are in attached mode, we will be able to see the output in terminal ,given by the running container.
+        But we wont be able to give any inputs to the container.That's because **attached mode** is **listen only** mode.
+        If we want to do that then we need to be in interactive mode.
+        
