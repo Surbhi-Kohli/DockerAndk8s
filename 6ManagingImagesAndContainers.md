@@ -215,5 +215,8 @@ If you want to know details about an image, you can use a command to do that: `d
                             "LastTagTime": "0001-01-01T00:00:00Z"
                         }
                     }
-]
+                    ]
         You can ofcourse also run docker image inspect on base images like node image
+        
+        #Copying Files Into and from a container:
+        What if u want to add something to an already running container.U can use `docker cp` to copy files and folders into a running container or out of a running container.
