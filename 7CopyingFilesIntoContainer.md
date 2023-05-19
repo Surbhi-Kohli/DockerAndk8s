@@ -50,15 +50,17 @@ What if you want to extract some files  from your container to ur local app:
   <img width="847" alt="Screenshot 2023-05-19 at 1 24 46 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/83d25dd4-4958-4611-a6f8-02fa0d265afd">
 
   ##
-  We can do the same with our own images.If the image has no tag, name alon is the unique identifier.
+  We can do the same with our own images.If the image has no tag, name alone is the unique identifier.
               
                     //Command to give name, tag to images:  docker build -t <name>:<tag> <pathOfDockerFile>
                      docker build -t goalsApp:latest .  
   
   <img width="540" alt="Screenshot 2023-05-19 at 1 46 15 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/9d6b7328-f83c-4007-a969-b045ccc2b19f">
-We can change the name of an image via
+We can change the name of an image via:
                            
-                              docker tag <oldTag> <newTag>             
+                              docker tag <oldTag> <newTag> 
+  
+  This will clone the image with new name and not remove the older image
   
   Now you can run a container from the named image
                        
