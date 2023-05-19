@@ -6,3 +6,4 @@ Better way would be to share the image itself.
 ## Pushing images to DockerHub
 We can push the images to docker hub or a private registry.DockerHub is the official docker image registry.
 <img width="1038" alt="Screenshot 2023-05-19 at 2 44 10 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/b746bad9-cb34-4284-bf14-81277651407f">
+Pushing/pulling to private registry would require url details of the private registry.
