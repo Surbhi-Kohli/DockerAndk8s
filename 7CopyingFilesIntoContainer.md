@@ -24,15 +24,18 @@ What if you want to extract some files  from your container to ur local app:
 ## Naming and tagging Containers and Images:
   
   **Naming Containers** 
-                     docker run -p 3000:80 --name <TheName u wanna Give to ur container> <Imageid from which the container is to be created>
-                      docker run -p 3000:80 --name surbhiNodeApp 22d13dc7bf8e
+  
+     
+                       docker run -p 3000:80 --name <TheName u wanna Give to ur container> <Imageid from which the container is to be created>
+                       docker run -p 3000:80 --name surbhiNodeApp 22d13dc7bf8e
    **Naming Images**
-
+##
   For the images taken from docker hub, u might notice that the image has a **tag** and a **repository**, but for the image build by us via the Dockerfile,
   both these values are "none".
     When you generate an image via docker build, the generated image just has an id.You can assign a name to images.But in case of images, name is called a tag.
   An image tag consists of 2 parts.
   **name**(also called repository) of the image:**tag**.Combining these 2 , we should always have a unique identifier for the image.
+  ##
   The concept of having these 2 parts exists for a simple reason .
   With the **name** you can setup a general name of the image.Eg this name might be common for a group
   of multiple, specialized images, eg "node"
@@ -48,13 +51,18 @@ What if you want to extract some files  from your container to ur local app:
 
   ##
   We can do the same with our own images.If the image has no tag, name alon is the unique identifier.
-                 //Command to give name, tag to images:  docker build -t <name>:<tag> <pathOfDockerFile>
-                    docker build -t goalsApp:latest .  
+              
+                    //Command to give name, tag to images:  docker build -t <name>:<tag> <pathOfDockerFile>
+                     docker build -t goalsApp:latest .  
   
   <img width="540" alt="Screenshot 2023-05-19 at 1 46 15 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/9d6b7328-f83c-4007-a969-b045ccc2b19f">
-
+We can change the name of an image via
+                           
+                              docker tag <oldTag> <newTag>             
+  
   Now you can run a container from the named image
-                        docker run -p 3000:80 <image name:tag>
+                       
+                           docker run -p 3000:80 <image name:tag>
   
   Side note: If you want to remove all images, including the tagged images run.
                     docker images prune -a
