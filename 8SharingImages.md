@@ -25,3 +25,24 @@ Also u cannot push to a repository from local unless ur local logins in via the 
  If you try running a docker image that is available on your local system but present on docker hub, latest image will be pull automatically from the docker hub and will be run.
  But if you have a latest remote image, and also have a local image(which is not latest), docker run will not automatically pull the latest image .
  
+ QnA
+ 1.What's the result of these commands?
+
+         docker build -t myimage .
+         docker run --name mycontainer myimage
+         docker stop mycontainer
+
+A.An image is created,a container is started and then stopped.Both ,images and container,have a name assigned by developer.
+2.Assume that these commands were executed:
+
+    docker build -t myimage:latest .
+    docker run --name mycontainer --rm myimage
+    docker stop mycontainer
+Which of the below commands will fail?
+a.docker ps -a
+b.docker rmi myimage:latest
+c.docker rm mycontainer
+ans-c
+This command fails. There will be no such container because it's automatically removed once stopped.
+3.What's the idea behind image tags?
+A.An image can have a name and then multiple "versions" of that image attached on the same name.
