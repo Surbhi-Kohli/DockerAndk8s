@@ -33,6 +33,7 @@ Also u cannot push to a repository from local unless ur local logins in via the 
          docker stop mycontainer
 
 A.An image is created,a container is started and then stopped.Both ,images and container,have a name assigned by developer.
+##
 2.Assume that these commands were executed:
 
     docker build -t myimage:latest .
@@ -44,5 +45,6 @@ b.docker rmi myimage:latest
 c.docker rm mycontainer
 ans-c
 This command fails. There will be no such container because it's automatically removed once stopped.
+##
 3.What's the idea behind image tags?
 A.An image can have a name and then multiple "versions" of that image attached on the same name.
