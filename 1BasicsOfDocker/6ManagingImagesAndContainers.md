@@ -101,7 +101,10 @@ You can remove an image via `docker rmi <imageid>`
          docker rmi <imageid1> <imageid2> <imageid3> <imageid4>
         If u wanna remove all the images that are not being used in containers , u can do the following:
                docker image prune
-        
+        But this will by default only remove all images that are not tagged(named).
+        So if u want to remove all unused images, even those that have a tag,run:
+               docker image prune -a
+         
         ## Removing stopped containers automatically
         You can use docker run --help to check for all config options
              docker run --rm flag =automatically removes the container when it exits
