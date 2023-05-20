@@ -21,7 +21,7 @@ Also u cannot push to a repository from local unless ur local logins in via the 
     
              docker pull <image name>
      Docker pul always fetches the latest image from the registry        
- ## Important not about docker images:   
+ ## Important note about docker images:   
  If you try running a docker image that is available on your local system but present on docker hub, latest image will be pull automatically from the docker hub and will be run.
  But if you have a latest remote image, and also have a local image(which is not latest), docker run will not automatically pull the latest image .
  
