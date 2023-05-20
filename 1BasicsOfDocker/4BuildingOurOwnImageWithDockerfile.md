@@ -86,12 +86,16 @@ Now to run the container:
         Because an important step is missing here.The EXPOSE step in Dockerfile is just for documentation purpose.It doesn't do anything.This
         instruction is optional.
         Important thing here is when you execute docker run, u add special option (-p= publish)
+ 
                          docker run -p <localport>:<internal docker port> <containerId>
-        
+        The internal docker port has to be what your node application is listening on as mentioned in your app
+ 
         This allows us to tell docker, under which local port on our machine, the internal docker specific port should be accessible.
                            docker run -p 3000:80 b9a91fa63e227d41043a48a9549260ef011a58c3649fc3acafc34b1ce1542a61 
         EXPOSE & A Little Utility Functionality
 In the last lecture, we started a container which also exposed a port (port 80).
+ 
+<img width="535" alt="Screenshot 2023-05-20 at 2 33 25 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/a613ae13-a8ca-496d-8982-8894ff64d7b9">
 
 I just want to clarify again, that EXPOSE 80 in the Dockerfile in the end is optional. It documents that a process in the container will expose this port. But you still need to then actually expose the port with -p when running docker run. So technically, -p is the only required part when it comes to listening on a port. Still, it is a best practice to also add EXPOSE in the Dockerfile to document this behavior.
 
