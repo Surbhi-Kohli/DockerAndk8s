@@ -8,8 +8,16 @@ But during development phase, we make lot of changes in our code and want to run
 
 Since the persistent data is of importance to container and not to image, we dont have to make changes in dockerfile, rather we have to give additional config on container run.
  
- <img width="904" alt="Screenshot 2023-05-21 at 5 47 38 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/373b40da-b506-454d-a20f-1a03d2d4717b">
-For the Bind mount, we specify the absolute path of the folder of the folder on host machine that has all the code, that should be part of mapping.and then put colon, specify the docker folder path.  
+ <img width="904" alt="Screenshot 2023-05-21 at 5 47 38 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/373b40da-b506-454d-a20f-1a03d2d4717b">. 
+ 
+For the Bind mount, we specify the absolute path of the folder of the folder on host machine that has all the code, that should be part of mapping.and then put colon, specify the docker folder path.
+If you don't always want to copy and use the full path, you can use these shortcuts:
+macOS / Linux: -v $(pwd):/app
 You can put this X:Y in quotes like follows, in case the absolute path has special characters like spaces.
   
           -v "/Users/s0k06tn/Downloads/DockerCollection/data-volumes-01-starting-setup:/app"
+
+It is important to ensure that docker has access to the local machine folders that you are sharing as bind mount.You can confirm that in Docker desktop->preferences->Resources->FileSharing
+
+Running the above command alone on data-volumes node project , when we run the container, it stops immediately.The reason is, we create a bind mount in container,which makes the container refer to  files from local system,which doesn't have node_modules, which are necessary for running the container.It does not refer to app folder in the image--confusion. 
+
