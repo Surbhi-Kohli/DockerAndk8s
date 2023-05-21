@@ -17,8 +17,10 @@ We need to understand different kinds of data , to know the problems we might be
 ## Volumes:
 Docker has a built in feature called Volumes.They help in data persistence.They are folders on the host machine which have mapping with the folders on container.
 Any changes on volume folders in containers gets reflected on your local folders and vice versa.Volumes are of 2 types: anonymous and named.
-For both the cases,docker sets up some path on your local machine for the volume.
-**Anonymous Volumes** : Only exist as long the container exists.When we remove our container, the anonymous volume would also be gone.The volume does not delete when we just stop the container.Anonymous volumes are closely attached to one specific container.
+For both the cases,docker sets up some path on your local machine for the volume.  
+
+**Anonymous Volumes** : Only exist as long the container exists.When we remove our container, the anonymous volume would also be gone.The volume does not delete when we just stop the container.Anonymous volumes are closely attached to one specific container.  
+
 **Named Volumes** :The named volumes servive even on container removal/deletion.If you start new container, after removal of older container,named volumes would be back.
 They are great for data that should be persistent.But you can't edit that data directly as you would not know the path of the volume on your local machine.They are not attached to a container.
 #
