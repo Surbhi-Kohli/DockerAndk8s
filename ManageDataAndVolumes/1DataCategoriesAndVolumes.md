@@ -26,8 +26,9 @@ They are great for data that should be persistent.But you can't edit that data d
 
 ## How can we add Volume to our container??
 
-1.Add VOLUME instruction in Dockerfile. 
-<img width="716" alt="Screenshot 2023-05-21 at 2 19 13 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/616068a7-c0b8-4e17-beda-3a536df938d8">. 
+1.Add VOLUME instruction in Dockerfile.   
+
+<img width="716" alt="Screenshot 2023-05-21 at 2 19 13 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/616068a7-c0b8-4e17-beda-3a536df938d8">.   
 
 This will create an anonymous Volume to the image that gets created .  
 2.We create a named volume when we run a container and we pass the -v flag
@@ -37,7 +38,9 @@ This will create an anonymous Volume to the image that gets created .
 <img width="737" alt="Screenshot 2023-05-21 at 3 49 11 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/be3b9e29-0f76-4ee8-8491-630885c27faf">
 
 Now when you would remove this feedback-app container, the volume would still be there and you can see it via:  
-                docker volume ls 
+           
+                 docker volume ls   
+                 
 When u create a new container again along with -v flag and same volume name, path, you would be able to see that the container does retain previous data on volume
 that previous container had stored.
 **Commmands**  
