@@ -45,10 +45,12 @@ Now when you would remove this feedback-app container, the volume would still be
                  
 When u create a new container again along with -v flag and same volume name, path, you would be able to see that the container does retain previous data on volume
 that previous container had stored.
-**Commmands**  
-             docker volume ls //to list all volumes currently being managed by docker.  
+**Commmands**    
+     
+              docker volume ls //to list all volumes currently being managed by docker.  
              
-   <img width="644" alt="Screenshot 2023-05-21 at 2 30 21 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/d505baf4-d081-4adf-b354-d202036ee2e6">
+   <img width="644" alt="Screenshot 2023-05-21 at 2 30 21 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/d505baf4-d081-4adf-b354-d202036ee2e6">. 
+   
 Volume name is an automatically generated name in case of anonymous volumes.
 We saw, that anonymous volumes are removed automatically, when a container is removed.
 This happens when you start / run a container with the --rm option.If you start a container without that option, the anonymous volume would NOT be removed, even if you remove the container (with docker rm ...).
