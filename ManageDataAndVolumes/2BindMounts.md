@@ -1,6 +1,6 @@
 ## Bind Mounts
 
-They are managed by the **developer** instead of docker.We do know where the bind mounts related data is stored on our local machin unlike in volumes where we dont.
+They are managed by the **developer** instead of docker.We do know where the bind mounts related data is stored on our local machine unlike in volumes where we dont.
 We as a developer set the path to which the container internal path should be mapped on our host machine.
 ## Problem that Bind mounts solve:
 Whenever we change anything in our source code in the app,those changes are not reflected in the running container unless we rebuild an image and run new container.
@@ -20,4 +20,26 @@ You can put this X:Y in quotes like follows, in case the absolute path has speci
 It is important to ensure that docker has access to the local machine folders that you are sharing as bind mount.You can confirm that in Docker desktop->preferences->Resources->FileSharing
 
 Running the above command alone on data-volumes node project , when we run the container, it stops immediately.The reason is, we create a bind mount in container,which makes the container refer to  files from local system,which doesn't have node_modules, which are necessary for running the container.It does not refer to app folder in the image--confusion. 
+
+
+## Understanding Container and volume/bind mount interaction:
+If we have a container , and a volume and bind mount,We can mount(create mapping) both into the container with the -v flag.
+In case we have some files inside the container, then those will also get added in volume on the local machine.Also vice versa: If volume has a file that the container does not have, those files will be taken by container.Similarly for bind mount.
+When we have same files both within volume/bind mount and the container,Docker doesn't overwrite the local machine files.Instead, the bind mount, on local machine overwrites the contents of docker container.
+<img width="984" alt="Screenshot 2023-05-22 at 12 31 15 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/37a57506-e51f-475d-88e8-7edc148b7281">
+
+Because of this, the above problem of container crashing occurs, where we get rid of the node_modules.To solve this problem, we need to tell docker that there are certain parts in its image's file system that it should be refering to instead of checking those from the bind mount.
+We do this by adding an anonymous volume.
+<img width="703" alt="Screenshot 2023-05-22 at 12 40 05 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/ea55ced3-adef-4037-bbc6-63bed6adc929">
+This equivalent to adding a VOLUME instruction in dockerfile as follows.You can do either.  
+
+<img width="758" alt="Screenshot 2023-05-22 at 12 43 33 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/1171b9c1-8596-40e6-8e8a-27ea7451fc83">
+
+Passing the node_modules volume works because docker evaluates all volumes and Bind mounts.If there are clashes, the longer and specific internal path wins.
+Here we have a /app bind mount and also /app/node_modules volume.The priority is given to /app/node_modules
+This new volume /app/node_module ensures that the node_modules folder is not overwritten by bind mount.  
+<img width="973" alt="Screenshot 2023-05-22 at 2 59 30 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/6f9890eb-5804-4efd-9288-a698bd2ca748">
+
+
+<img width="967" alt="Screenshot 2023-05-22 at 2 59 56 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/1831279c-5c8a-4469-b08c-2ba9b384fe2e">
 
