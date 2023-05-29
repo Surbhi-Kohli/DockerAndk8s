@@ -19,7 +19,8 @@ You can put this X:Y in quotes like follows, in case the absolute path has speci
 
 It is important to ensure that docker has access to the local machine folders that you are sharing as bind mount.You can confirm that in Docker desktop->preferences->Resources->FileSharing
 
-Running the above command alone on data-volumes node project , when we run the container, it stops immediately.The reason is, we create a bind mount in container,which makes the container refer to  files from local system,which doesn't have node_modules, which are necessary for running the container.It does not refer to app folder in the image--confusion. 
+Running the above command alone on data-volumes node project , when we run the container, it stops immediately.The reason is, we create a bind mount in container,which makes the container refer to  files from local system(it creates a two way mapping where even the container copies those files),which doesn't have node_modules, which are necessary for running the container.It does not refer to app folder in the image.
+The container has a writable filesystem.  So in essence, the bind mount will overwrite(mapped overwrite) the file path in the container with our source files (from the host machine).
 
 
 ## Understanding Container and volume/bind mount interaction:
