@@ -44,3 +44,23 @@ This new volume /app/node_module ensures that the node_modules folder is not ove
 
 <img width="967" alt="Screenshot 2023-05-22 at 2 59 56 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/1831279c-5c8a-4469-b08c-2ba9b384fe2e">
 
+**Anonymous Volumes** cant be used to share  data across containers.You also cant save data across container destruction and recreation.But they are usefule for locking
+in a certain data which might get overwritten by another module.The anonymous volume can help in such a case.Also since they create a folder on the host machine(which gets removed when a container is removed),so docker doesnt have to store data inside the container read-write layer, but it can outsource certain data to your host machine file system.This can help with performance and efficiency.
+
+**named Volumes** cant be created with the Dockerfile,but instead we should use -v instruction when running the container.They survive container shutdown and removal.
+These can be used to share data across multiple containers.
+**Bind Mounts**:Here we know where hte data is stored on the host machine, they survive container shutdown and removal.If you wanna clear data of bind mount, u have to delete it on the host machine.
+  
+ Question 1:What's a "Volume" (when working with Docker)?    
+ Ans:A file/folder inside the docker container that is connected to some folder outside the container.  
+ Question2 : Can u know where the host folder(which is mapped to the container- internal path) is for a volume?  
+ Ans: No. 
+ Question 3: What is a bind mount?  
+ Ans:A path on your host machine,which you know and specified, that is mapped to some container-internal path.  
+ Question 4:What's a typical use-case for bind mounts?  
+ Ans:You want to provide live data to the container(no rebuilding of image needed). 
+ Question 5:Are anonymous containers useless?  
+ Ans:No, you can use them to prioritize container-internal paths higher than external paths.
+ 
+ 
+
