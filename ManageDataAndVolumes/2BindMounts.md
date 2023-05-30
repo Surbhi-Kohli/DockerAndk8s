@@ -62,5 +62,10 @@ These can be used to share data across multiple containers.
  Question 5:Are anonymous containers useless?  
  Ans:No, you can use them to prioritize container-internal paths higher than external paths.
  
+ ## Read only Bind mounts:
+ If we want to restrict the container(and the app running inside container) from changing folders on our host machine(which are mapped via bind mount), we can specify this 
+ by turning the bind mount into a "read-only" volume.
+ By default, volumes/bind mounts are read-write which means the container is able to read data from there and write to them(volumes/ bind mount data on host machine).You can restrict by passing "ro" flag.
+ 
  
 
