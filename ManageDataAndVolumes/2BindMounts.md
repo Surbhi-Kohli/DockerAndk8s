@@ -66,6 +66,13 @@ These can be used to share data across multiple containers.
  If we want to restrict the container(and the app running inside container) from changing folders on our host machine(which are mapped via bind mount), we can specify this 
  by turning the bind mount into a "read-only" volume.
  By default, volumes/bind mounts are read-write which means the container is able to read data from there and write to them(volumes/ bind mount data on host machine).You can restrict by passing "ro" flag.
- 
+ <img width="812" alt="Screenshot 2023-05-30 at 9 26 36 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/65602bf4-e771-4b07-8026-36810c1bd709">
+
+But an important thing to notice here is that this would make our entire bind mount folder (feedback and temp within the app) unwritable, while we actually want to write to those folders.Hence we must make sure that writing is possible to those folders.
+Here we specify a more specific sub-volume then that sub-volume overwrites the main volume.
+for app/feedback, we are good as we specify a volume(/app/feedback is more specific path than that specified in bind mount).
+This makes the volume writable, as specific rules work.
+Similar thing is done to temp folder,where we specify an anonymous volume.
+**It is important to note that when we want to override the bind mount ro rule, we muct specify the anonymous volumes like the one for temp, in the command Docker run itself and not in dockerfile.**
  
 
