@@ -3,7 +3,8 @@
 will give u a list of commands that u can run to manage docker volumes.
 
                docker volume ls //lists all the currently active volumes
-               <img width="603" alt="Screenshot 2023-05-30 at 9 57 37 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/7f1e69aa-5152-42a5-8abf-9b59ded2bc76">
+               
+<img width="603" alt="Screenshot 2023-05-30 at 9 57 37 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/7f1e69aa-5152-42a5-8abf-9b59ded2bc76">
 
 Bind mount doesn't show up in this list as it is not managed by docker.
  
