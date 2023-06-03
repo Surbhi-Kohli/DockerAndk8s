@@ -51,7 +51,21 @@ For some values, this might not matter but for credentials, private keys etc. yo
 If you use a separate file, the values are not part of the image since you point at that file when you run `docker run`. But make sure you don't commit that separate file as part of your source control repository, if you're using source control.--confusion..what .env file is copied to image and build??
            
    ## Arguments:
+  Build time arguments via which we can plug values when we build the image without having to hardcode those into the dockerfile.
+  Considering out example project, what if we want to make the default value of the PORT flexible So that when we build the image,we can actually build the image based on   one and the same unchanged the Dockerfile multiple times. And that's something we can achieve with build-time arguments. 
+  This argument cannot be used in your code here, you can only use it in your Dockerfile and even there, u cant use it on every instruction.You cannot use it on CMD, for example,because that's a runtime command in the end,which is executed when the container starts.But you can use your arg on all the other instructions.And therefore we can also use it on the env instruction,for example, to set the default value for this environment variable to default_port like this.
 
+
+<img width="680" alt="Screenshot 2023-06-03 at 9 43 12 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/535f4f7b-c12f-4032-ac36-ae8b91bc07f9">. 
+ We can set a dynamic argument which then is set as a default value for the dynamic environment variable.
 
           
+           <img width="828" alt="Screenshot 2023-06-03 at 10 22 44 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/15c1c279-7980-40f1-a8dc-b41615fe14c6">
+
+ Now we can get multiple images based on the same Dockerfile,as per the arg we pass during build,where we didn't need to change any code.And yet, we're using a different port number,which is then used as a default for the environment variable.
            
+           **Now one note about where you specify args and envs.**
+           It is important that u put arg and env commands after npm install, so that whenever u update the default values for arg or env, the npm install command doent run(based on image's command layering principle).Dont ever place these commands at the begining of dockerfile.Because these instructionsjust like all other instructions,
+add layers to your Dockerfile.And hence, when something changes about them,all subsequent layers are rebuilt, are re-executed.
+
+
