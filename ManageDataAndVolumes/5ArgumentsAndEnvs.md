@@ -14,5 +14,7 @@ ARGS and ENVs allow you to create more flexible images and containers because yo
         // for such env variables.
         
         We can set/announce this env variable inside of a dockerfile.
-        <img width="874" alt="Screenshot 2023-06-03 at 1 36 33 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/5ad8db1a-2d4f-4394-9fc2-0c6a64908ddb">
+        
+ <img width="874" alt="Screenshot 2023-06-03 at 1 36 33 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/5ad8db1a-2d4f-4394-9fc2-0c6a64908ddb"> 
+ 
        $<Variable> tells docker that it needs to search for an env variable with name "Variable" and plug its value.
