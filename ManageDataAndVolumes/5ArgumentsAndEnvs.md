@@ -31,13 +31,13 @@ You can use -e, instead of --env.Also u can add multiple key value pairs like -e
 This env variable port value of 8000 will be exposed by the container and thats what will be used by the server.js.
 Advantage: We dont need to rebuild the image just to change the port exposed by docker.We can just mention the port via env variable using run command.
            
-         #  Another way to mention env variable values = method 2
+  #  Another way to mention env variable values = method 2
   You can create a file named .env in your application,where u can setup your env variables key value pairs. Then on docker run, you can mention to use the values of .env file
            <img width="847" alt="Screenshot 2023-06-03 at 3 23 49 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/a466450b-1b02-441c-b8d2-715f5f923542">
 
            Advantage: You can just switch values in your .env file and run docker run .
            
-          ## Environment Variables & Security
+ ## Environment Variables & Security
 One important note about environment variables and security: Depending on which kind of data you're storing in your environment variables, you might not want to include the secure data directly in your Dockerfile.
 
 Instead, go for a separate environment variables file which is then only used at runtime (i.e. when you run your container with docker run).
