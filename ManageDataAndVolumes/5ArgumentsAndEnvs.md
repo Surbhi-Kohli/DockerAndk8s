@@ -38,15 +38,17 @@ Advantage: We dont need to rebuild the image just to change the port exposed by 
            Advantage: You can just switch values in your .env file and run docker run .
            
  ## Environment Variables & Security
-One important note about environment variables and security: Depending on which kind of data you're storing in your environment variables, you might not want to include the secure data directly in your Dockerfile.
+One important note about environment variables and security: Depending on which kind of data you're storing in your environment variables, you might not want to include the secure data directly in your `Dockerfile`.  
 
-Instead, go for a separate environment variables file which is then only used at runtime (i.e. when you run your container with docker run).
+Instead, go for a separate environment variables file which is then only used at runtime (i.e. when you run your container with `docker run`).  
 
-Otherwise, the values are "baked into the image" and everyone can read these values via docker history <image>.
+Otherwise, the values are "baked into the image" and everyone can read these values via `docker history <image>`.  
+           
+<img width="834" alt="Screenshot 2023-06-03 at 3 32 31 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/7977f562-844f-4e0a-8c68-f623b0e78753">
 
 For some values, this might not matter but for credentials, private keys etc. you definitely want to avoid that!
 
-If you use a separate file, the values are not part of the image since you point at that file when you run docker run. But make sure you don't commit that separate file as part of your source control repository, if you're using source control.
+If you use a separate file, the values are not part of the image since you point at that file when you run `docker run`. But make sure you don't commit that separate file as part of your source control repository, if you're using source control.
 
 
            
