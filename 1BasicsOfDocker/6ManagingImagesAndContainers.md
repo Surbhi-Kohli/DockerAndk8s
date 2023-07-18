@@ -33,8 +33,10 @@ Consider our container running the goal creation node app.If I add a goal in the
 
 
 We can run a container in detached mode  by specifying -d flag
-         docker run -p 8001:80 -d b9a91fa63e22 
-         <img width="625" alt="Screenshot 2023-05-11 at 9 35 28 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/dc11a572-ee81-4367-bf4f-ea3e817f341e">
+         docker run -p 8001:80 -d b9a91fa63e22   
+         
+         <img width="625" alt="Screenshot 2023-05-11 at 9 35 28 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/dc11a572-ee81-4367-bf4f-ea3e817f341e">  
+         
  You can attache yourself to a running detached container by running
         docker attach <Container name/id>
   
