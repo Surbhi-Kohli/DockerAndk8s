@@ -36,14 +36,17 @@ Whenever one layer(instruction) changes, all the subsequent layers are re-execut
 The layer architecture exists to speed up the creation of images, since docker only rebuilds/re-executes whatever needs to be .
 
 But as of now in our Dockerfile, there is a scope for optimization.Whenever anything in our code(server.js) changes , docker runs npm install, when we as a developer know that it is unnecessary,unless we have changed something in package.json.
-So we can update our Dockerfile as follows:
+So we can update our Dockerfile as follows:  
+
 #
-<img width="550" alt="Screenshot 2023-05-10 at 9 41 20 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/7e814749-3f42-4b21-adcf-6b57167dbfc5">
+<img width="550" alt="Screenshot 2023-05-10 at 9 41 20 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/7e814749-3f42-4b21-adcf-6b57167dbfc5">  
+
 #
 Now it will be more performant
 
 #
-<img width="722" alt="Screenshot 2023-05-10 at 9 58 06 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/48ab6d22-20cf-492e-aea9-b8d2c35b51e2">
+<img width="722" alt="Screenshot 2023-05-10 at 9 58 06 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/48ab6d22-20cf-492e-aea9-b8d2c35b51e2">   
+
 #
 Container does not copy the code and env into itself in a file.It is not that every container takes the code and env from image and maintains a copy.
 Containers use the env stored in their image and then just add the extra layer of running server(in our demo code cas, it is node server)
