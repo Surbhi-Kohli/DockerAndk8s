@@ -30,4 +30,7 @@ This fails as the backend service is trying to reach out to mongodb on its conta
 <img width="572" alt="Screenshot 2023-07-18 at 11 00 06 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/01d2c497-dca1-46eb-bbd9-dbc701cbd249">
 
 
-This needs to be updated to translate to local machine.Now u will have to rebuild image and then re run container
+This needs to be updated to translate to local machine.Now u will have to rebuild image and then re run container.Now it would successfully connect to mongodb.But now the react app, that is not dockerized would not be able to talk to the node backend.
+You should be publishing a port of node backend 
+docker run --name goals-backend --rm -d -p 80:80 goals-node 
+Conatiner's internal port 80 is exposed to local system's 80
