@@ -1,0 +1,5 @@
+Context should be set to a folder which includes everything that the dockerfile might be reffering to.If ur Dockerfile is in some nested folder  and needs access to files outside of the folder that contains dockerfile, then ur context should be set to a higher level folder.
+
+<img width="621" alt="Screenshot 2023-07-22 at 10 33 20 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/5c4407f0-e271-4d0f-96cf-b9ec9aff98c7">
+When we list containers, we see that the name defined for the containers is :6compose-01-starting-setup-mongodb-1 ,6compose-01-starting-setup-backend-1.Nonetheless, the names u specify under services in docker-compose file will be memorized by docker-compose.And u can use these names inside the code to establish network connections.Thats why in app.js of node app, where we connect to mongodb as a name, it works
+<img width="740" alt="Screenshot 2023-07-22 at 10 38 47 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/30deb3a0-26fa-4280-8e90-7654435ee319">
