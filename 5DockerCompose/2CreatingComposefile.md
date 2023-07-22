@@ -8,8 +8,8 @@ The ``version`` we define has an impact on the features that we can use in the c
 
 https://docs.docker.com/compose/compose-file/compose-versioning/  
 
-2.Second is the ``services`` key.This takes nested values.Here you will mention services/containers to be build.Within each service u have configs for each .Eg you specify ``image``, ``volumes``.We can have nested values within ``volumes`` as we can have multiple volumes.You can also add ``environment`` option.You have 2 syntaxes for specifying environment vars.
- ``MONGO_INITDB_ROOT_USERNAME:max``
+2.Second is the ``services`` key.This takes nested values.Here you will mention services/containers to be build.Within each service u have configs for each .Eg you specify ``image``, ``volumes``.We can have nested values within ``volumes`` as we can have multiple volumes.You can also add ``environment`` option.You have 2 syntaxes for specifying environment vars.  
+ ``MONGO_INITDB_ROOT_USERNAME:max``  
  `` - MONGO_INITDB_ROOT_USERNAME=max``
 But you can also specify environment variable file.You create an env folder within the project and then create .env file for a service,eg mongo.env.There you can specify the environment variables.
 then in ur file u can add env_file and specify list of files that should be used for the container.Here we will use - .If u have key value pair,
