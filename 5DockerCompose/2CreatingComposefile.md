@@ -26,3 +26,16 @@ You can also add a network, with ``networks`` key and specify all networks that 
 
 Also in compose file, you dont need to specify removal of container on shutdown , ``docker compose down`` would do that on its own. 
 
+## Docker Compose up and down
+``docker-compose up`` This starts all services defined in this compose file.It will automatically pull, build all required images and start containers.  It is in attached mode.
+<img width="878" alt="Screenshot 2023-07-22 at 4 36 39 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/f47872ca-36fa-47ca-8ca9-8f5a5ae6b999">
+
+To start container in detached mode, you can run ``docker-compose up -d``  
+
+To stop containers, use ``docker-compose down``.This deletes all containers,also the default network that got created and shuts everything down.
+
+  <img width="825" alt="Screenshot 2023-07-22 at 4 46 09 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/76c16434-d075-4ab4-a4d2-8ff3ad4f2062">
+
+But it does not delete volumes.For that u have to run ``docker-compose down -v``  
+
+<img width="829" alt="Screenshot 2023-07-22 at 4 46 55 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/fd274330-0ada-45bc-9a53-c10085ee21f0">  
