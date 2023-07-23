@@ -46,4 +46,7 @@ Another important thing to notice here:when we launch a container, in our case c
 Here the only thing that connects to mongodb container is the nodejs favourites container which is within the network.
 So container to container communication deosn require port publishing because internally, the container network, all the containers can freely communicate with each other without the need to expose ports
 
-## How docker resolves IP addresses
+## How docker resolves IP addresses  
+
+<img width="1110" alt="Screenshot 2023-07-23 at 10 35 39 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/fffcac58-586a-4d47-846c-9144e5106182">  
+Docker does not replace the code ie the name of container with the IP address.
