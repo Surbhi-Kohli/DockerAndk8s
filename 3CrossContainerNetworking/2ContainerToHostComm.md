@@ -22,5 +22,14 @@ But this process is not very convenient.We had to lookup for ip address of our r
 
 2.Via Docker networks:
 <img width="983" alt="Screenshot 2023-06-10 at 4 22 02 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/1c221339-5a2f-44e7-9dbd-dfe52c153a7f">
-With Docker, you can create so-called container networks,also called just networks.So, what are networks then?Well, the idea is that you might have multiple containers and you want to allow communication between these containers.So, essentially the scenario we have with the node web API container and the MongoDB container.Now, with Docker, you can put all these containers into one and the same network by adding the --network option on the Docker run command.This then creates a network in which all containers and Docker is then automatically doing this IP look up and resolving stuff,which we did manually in previous method.
+With Docker, you can create so-called container networks,also called just networks.So, what are networks then?Well, the idea is that you might have multiple containers and you want to allow communication between these containers.So, essentially the scenario we have with the node web API container and the MongoDB container.Now, with Docker, you can put all these containers into one and the same network by adding the --network option on the Docker run command.This then creates a network in which all containers are able to communicate with each other and Docker is then automatically doing this IP look up and resolving stuff,which we did manually in previous method.
+So for this, first of all, you will have to create a custom docker network via the following command:
+``docker network create <networkName>``
+A docker internal network gets created which u can then use on docker containers.With  ``docker network ls`` ,you can inspect all existing networks.Then once the network is created, u can run ur container with the --network flag
+Now u can add containers within this network while running the container.
+<img width="555" alt="Screenshot 2023-07-23 at 4 45 15 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/f59e2483-4c3e-4304-abbf-ae41d2227345">
+But the question here is , what code change is to be done in nodejs app running in a container within favourites-net network  to communicate with mongodb container.
+
+<img width="308" alt="Screenshot 2023-07-23 at 5 02 47 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/8983b902-988a-43a0-8aae-e53d4c1ca5ae">
+
 And that's a really useful feature for having multiple, isolated containers with their own duties and tasks,which still are able to talk to each other.
