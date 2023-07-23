@@ -1,6 +1,7 @@
-## Dockerizing mongodb:
+ ## Dockerizing mongodb:
 
-``docker run --name mongodb --rm -d -p 27017:27017``
+``docker run --name mongodb --rm -d -p 27017:27017`` 
+
 <img width="560" alt="Screenshot 2023-07-18 at 10 52 38 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/2760ebad-3047-49ad-bd4b-14bfbae693bf">
 
 If in case the backend, (the service that talks to mongodb) is not dockerized, it talks to mongo over a port as if it is running on local.So we need to expose a port of mongo container to local machine and thats why we use -p flag
