@@ -61,7 +61,8 @@ The default driver is the "bridge" driver - it provides the behavior shown in th
 
 The driver can be set when a Network is created, simply by adding the --driver option.
 
-docker network create --driver bridge my-net
+``docker network create --driver bridge my-net``
+
 Of course, if you want to use the "bridge" driver, you can simply omit the entire option since "bridge" is the default anyways.
 
 Docker also supports these alternative drivers - though you will use the "bridge" driver in most cases:
