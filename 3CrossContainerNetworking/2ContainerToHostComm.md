@@ -49,4 +49,31 @@ So container to container communication deosn require port publishing because in
 ## How docker resolves IP addresses  
 
 <img width="1110" alt="Screenshot 2023-07-23 at 10 35 39 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/fffcac58-586a-4d47-846c-9144e5106182">  
-Docker does not replace the code ie the name of container with the IP address.
+Docker does not replace the code ie see the name of container and replace it with the IP address.Instead ,docker owns the environment in which ur
+application runs.If ur application sends an HTTP request or a mongodb request,or any request that leaves the container, the docker is aware of that and its at that point of time, docker is able to resolve the address or the container name or the host.deocker.internal and replace it with actual IP address,since it is aware of the surrounding containers and the host machine.  
+
+So it's only when a request leaves the container, the IP address is found.If a request doesn't leave a container or a request is generated somewhere else, eg in the browser,if ur users are visiting ur web app and js code is running in the browser and a request is sent from there, then docker is not doing anything because it is not replacing the source code.
+
+## Docker Network Drivers
+Docker Networks actually support different kinds of "Drivers" which influence the behavior of the Network.
+
+The default driver is the "bridge" driver - it provides the behavior shown in this module (i.e. Containers can find each other by name if they are in the same Network).
+
+The driver can be set when a Network is created, simply by adding the --driver option.
+
+docker network create --driver bridge my-net
+Of course, if you want to use the "bridge" driver, you can simply omit the entire option since "bridge" is the default anyways.
+
+Docker also supports these alternative drivers - though you will use the "bridge" driver in most cases:
+
+host: For standalone containers, isolation between container and host system is removed (i.e. they share localhost as a network)
+
+overlay: Multiple Docker daemons (i.e. Docker running on different machines) are able to connect with each other. Only works in "Swarm" mode which is a dated / almost deprecated way of connecting multiple containers
+
+macvlan: You can set a custom MAC address to a container - this address can then be used for communication with that container
+
+none: All networking is disabled.
+
+Third-party plugins: You can install third-party plugins which then may add all kinds of behaviors and functionalities
+
+As mentioned, the "bridge" driver makes most sense in the vast majority of scenarios.
