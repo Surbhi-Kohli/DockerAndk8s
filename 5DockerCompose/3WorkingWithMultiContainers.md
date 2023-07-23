@@ -16,7 +16,8 @@ stdin_opn + tty is for interactive mode even if u start the service in detached 
 In case u run docker-compose up and the image is already built, then it will not be re-built again and use the existing image.It only rebuilds if you change anything in code and docker-compose realizes that rebuilding is required. 
 
 ## Building images and understanding container names:
-<img width="750" alt="Screenshot 2023-07-23 at 2 54 39 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/22b96da9-7f80-42e9-aa3d-f6313887df6f">
+<img width="750" alt="Screenshot 2023-07-23 at 2 54 39 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/22b96da9-7f80-42e9-aa3d-f6313887df6f">  
+
 With ``docker-compose up --build`` , images would be rebuild everytime a service is started.
 In case u want to build only the custom images defined via Dockerfile, You can do that via ``docker-compose build``.This will not start the container but just build all custom images mentioned in docker-compose file.
 
