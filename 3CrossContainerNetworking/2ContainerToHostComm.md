@@ -36,8 +36,12 @@ Now u can add containers within this network while running the container.
 But the question here is , what code change is to be done in nodejs app running in a container within favourites-net network  to communicate with mongodb container.
 
 <img width="308" alt="Screenshot 2023-07-23 at 5 02 47 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/8983b902-988a-43a0-8aae-e53d4c1ca5ae">
+<img width="644" alt="Screenshot 2023-07-23 at 5 21 40 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/7bfc80fc-a15e-4798-bbaf-c3747dededca">
 
 <img width="600" alt="Screenshot 2023-07-23 at 5 06 23 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/8ec89fd2-7555-49cb-a9cc-79bbbaddcd21">
 
 
 And that's a really useful feature for having multiple, isolated containers with their own duties and tasks,which still are able to talk to each other.
+
+
+## How docker resolves IP addresses
