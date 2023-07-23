@@ -11,9 +11,13 @@ Here, it's for a MongoDB type of request.But it could also be for an HTTP reques
 
 ## Case 3: Container to Container communication:
 1. Basic Solution
+``docker container inspect <containerName>`` will give info about the running container.The important piece of info here would be the IP address
+would be found under NetworkSettings key
+<img width="664" alt="Screenshot 2023-07-23 at 4 08 44 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/15a60dd8-7368-492c-bfc2-95d9476131d6">
 
-
-
+The IP address can be used to contact the mongodb container within the modejs container.  The nodejs container will now be able to connect to the mongodb container.
+<img width="780" alt="Screenshot 2023-07-23 at 4 13 09 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/99b5e15b-45fe-48d2-a411-6eb769a2289e">
+But this process is not very convenient.We had to lookup for ip address of our running mongodb container.Also, we will have to update our node container , ie build a new image, with new mongodb ip ,whenever the ip changes
 2.Via Docker networks:
 <img width="983" alt="Screenshot 2023-06-10 at 4 22 02 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/1c221339-5a2f-44e7-9dbd-dfe52c153a7f">
 With Docker, you can create so-called container networks,also called just networks.So, what are networks then?Well, the idea is that you might have multiple containers and you want to allow communication between these containers.So, essentially the scenario we have with the node web API container and the MongoDB container.Now, with Docker, you can put all these containers into one and the same network by adding the --network option on the Docker run command.This then creates a network in which all containers and Docker is then automatically doing this IP look up and resolving stuff,which we did manually in previous method.
