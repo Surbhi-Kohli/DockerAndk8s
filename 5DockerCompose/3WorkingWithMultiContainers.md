@@ -1,6 +1,7 @@
 
-<img width="931" alt="Screenshot 2023-07-23 at 2 09 05 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/9b826fc0-fe60-4624-8a10-09069c78cf8f">
-FOr the ``build`` config, there are 2 methods.The longer elaborate method envolves specifying context,args,etc
+<img width="931" alt="Screenshot 2023-07-23 at 2 09 05 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/9b826fc0-fe60-4624-8a10-09069c78cf8f">  
+
+For the ``build`` config, there are 2 methods.The longer elaborate method envolves specifying context,args,etc
 Context should be set to a folder which includes everything that the dockerfile might be reffering to.If ur Dockerfile is in some nested folder  and needs access to files outside of the folder that contains dockerfile, then ur context should be set to a higher level folder.
 
 <img width="621" alt="Screenshot 2023-07-22 at 10 33 20 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/5c4407f0-e271-4d0f-96cf-b9ec9aff98c7">  
