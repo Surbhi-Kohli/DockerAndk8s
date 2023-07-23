@@ -23,7 +23,7 @@ Add Dockerfile in backend code:
           CMD ["node", "app.js"]
 
 
-Build image via ``docker build -t goals-node .          
+Build image via ``docker build -t goals-node .``          
 Then run the container:  
 <img width="693" alt="Screenshot 2023-07-18 at 10 58 07 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/8ec1af6c-2bca-4d67-a31b-d5191e392950">
 
