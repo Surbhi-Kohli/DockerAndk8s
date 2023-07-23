@@ -28,12 +28,12 @@ So for this, first of all, you will have to create a custom docker network via t
 ``docker network create <networkName>``  
 
 A docker internal network gets created which u can then use on docker containers.With  ``docker network ls`` ,you can inspect all existing networks.Then once the network is created, u can run ur container with the --network flag
-Now u can add containers within this network while running the container.  
+Now u can add containers within this network while running the container.  Here we have added mongodb to the network:
 
 <img width="555" alt="Screenshot 2023-07-23 at 4 45 15 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/f59e2483-4c3e-4304-abbf-ae41d2227345">  
 
 
-But the question here is , what code change is to be done in nodejs app running in a container within favourites-net network  to communicate with mongodb container.
+But the question here is , what code change is to be done in nodejs app running in a container within favourites-net network  to communicate with mongodb container.You just need to mention the container's name to which the current container(node container) should connect, provided that the mongodb container is within the same network.
 
   
 <img width="644" alt="Screenshot 2023-07-23 at 5 21 40 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/7bfc80fc-a15e-4798-bbaf-c3747dededca">
@@ -42,6 +42,8 @@ But the question here is , what code change is to be done in nodejs app running 
 
 
 And that's a really useful feature for having multiple, isolated containers with their own duties and tasks,which still are able to talk to each other.
-
+Another important thing to notice here:when we launch a container, in our case consider the mongodb container,to which our node container connects to,we dont need to publish any ports.When running the to be connected container, we dont publish ports.The reason is that -p is only required if i plan on connecting to something in that container from our local machine or from outside our container network.
+Here the only thing that connects to mongodb container is the nodejs favourites container which is within the network.
+So container to container communication deosn require port publishing because internally, the container network, all the containers can freely communicate with each other without the need to expose ports
 
 ## How docker resolves IP addresses
