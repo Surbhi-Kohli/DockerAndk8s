@@ -9,6 +9,7 @@ If in case the backend, (the service that talks to mongodb) is not dockerized, i
 
 ## Dockerizing node app
 Add Dockerfile in backend code:
+         
           FROM node
           
           WORKDIR /app
