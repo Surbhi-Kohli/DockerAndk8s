@@ -1,6 +1,7 @@
  ## Dockerizing mongodb:
 
 ``docker run --name mongodb --rm -d -p 27017:27017`` 
+Ports are published so as to expose the container to the local , so that the non dockerized backend service running on local can communicate with it.
 
 <img width="560" alt="Screenshot 2023-07-18 at 10 52 38 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/2760ebad-3047-49ad-bd4b-14bfbae693bf">
 
