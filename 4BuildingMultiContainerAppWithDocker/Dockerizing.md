@@ -1,4 +1,4 @@
- ## Dockerizing mongodb:
+  ## Dockerizing mongodb:
 
 ``docker run --name mongodb --rm -d -p 27017:27017`` 
 Ports are published so as to expose the container to the local , so that the non dockerized backend service running on local can communicate with it.
@@ -26,14 +26,17 @@ Add Dockerfile in backend code:
 
 
 Build image via ``docker build -t goals-node .``          
-Then run the container:  
+Then run the container:    
+
 <img width="693" alt="Screenshot 2023-07-18 at 10 58 07 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/8ec1af6c-2bca-4d67-a31b-d5191e392950">
 
-This fails as the backend service is trying to reach out to mongodb on its container's port .Since the backend is inside a container,having localhost in node's mongo connection means that I am trying to access some other service on this port inside the same backend container and not on the host machine.
+This fails as the backend service is trying to reach out to mongodb on its container's port .Since the backend is inside a container,having localhost in node's mongo connection means that I am trying to access some other service on this port inside the same backend container and not on the host machine.  
+
 <img width="572" alt="Screenshot 2023-07-18 at 11 00 06 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/01d2c497-dca1-46eb-bbd9-dbc701cbd249">
 
 
 This needs to be updated to translate to local machine.Now u will have to rebuild image and then re run container.Now it would successfully connect to mongodb.But now the react app, that is not dockerized would not be able to talk to the node backend.
-You should be publishing a port of node backend 
-docker run --name goals-backend --rm -d -p 80:80 goals-node 
-Conatiner's internal port 80 is exposed to local system's 80
+You should be publishing a port of node backend   
+
+ ``docker run --name goals-backend --rm -d -p 80:80 goals-node ``
+Container's internal port 80 is exposed to local system's 80
