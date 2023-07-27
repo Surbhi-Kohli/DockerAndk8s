@@ -8,6 +8,7 @@ Ports are published so as to expose the container to the local , so that the non
 If in case the backend, (the service that talks to mongodb) is not dockerized, it talks to mongo over a port as if it is running on local.So we need to expose a port of mongo container to local machine and thats why we use -p flag
 
 ## Dockerizing node app
+Consider , we have mongodb running on the local system.
 Add Dockerfile in backend code:
          
           FROM node
