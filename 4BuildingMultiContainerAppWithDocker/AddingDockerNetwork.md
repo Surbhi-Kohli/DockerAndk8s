@@ -19,8 +19,7 @@ We dont publish ports because that is not required.The communication in containe
 <img width="701" alt="Screenshot 2023-07-27 at 8 21 39 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/97fa60e4-8f59-4015-ada3-74eac43fd8ab">
 
 We need to mention the mongo image name instead of 'host.internal'
-
-<img width="766" alt="Screenshot 2023-07-27 at 8 38 27 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/1ee8040d-7c1b-47a0-846d-729702b0c3d5">
+<img width="479" alt="Screenshot 2023-07-27 at 8 42 17 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/b1e5bd39-ea8b-46a3-8cd4-ea99ec6f356e">
 
 Now we rebuild the image and create container again.
 <img width="703" alt="Screenshot 2023-07-27 at 8 40 47 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/029cc611-8ee7-4390-a58c-e7fc951b1e13">
