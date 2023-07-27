@@ -41,3 +41,11 @@ You should be publishing a port of node backend
 
  ``docker run --name goals-backend --rm -d -p 80:80 goals-node ``
 Container's internal port 80 is exposed to local system's 80
+
+## Dockerizing react app:
+
+<img width="407" alt="Screenshot 2023-07-27 at 7 37 15 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/249cad10-37be-4bcb-88e2-76d3fc282159">  
+
+``docker run --name goals-frontend --rm -d -p 3000:3000 -it  goals-react``
+-it= interactive mode with terminal.
+-it flag is required to run a react container.Without it the container wont run.
