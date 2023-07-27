@@ -24,3 +24,6 @@ We need to mention the mongo db container  name instead of 'host.internal'
 
 Now we rebuild the image and create container again.
 <img width="703" alt="Screenshot 2023-07-27 at 8 40 47 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/029cc611-8ee7-4390-a58c-e7fc951b1e13">
+
+<img width="1152" alt="Screenshot 2023-07-27 at 8 58 46 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/38eaa29d-0486-4551-b5a1-8ed0f5dc391e">
+
