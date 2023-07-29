@@ -33,7 +33,7 @@ Inorder to solve this issue, we can manipulate the  mongodb connection string in
  
 <img width="488" alt="Screenshot 2023-07-29 at 4 48 57 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/b2617a1b-2f22-4111-be62-1d161a801d90">
 
-<img width="584" alt="Screenshot 2023-07-29 at 4 57 38 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/f2e114d4-d75a-493c-a82f-c956f0b0cb84">
+<img width="653" alt="Screenshot 2023-07-29 at 5 37 20 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/8b5fa494-7ef3-48a9-9205-d1ea58477f78">
 
 With this change, we should rebuild the node image and will be able to connect again.
 In case, still the authentication issue exists,The problem could be the volume and the fact that you created another user with different credentials before you changed them. Because of the volume, your database is still there and hence your old root user is still set up - i.e. your old credentials apply.
