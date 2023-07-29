@@ -27,8 +27,10 @@ We will now run the mongodb container mentioning the environment variables
 ``docker run --name mongodb -v data:/data/db --rm -d --network goals-net -e MONGO_INITDB_ROOT_USERNAME=surbhi -e MONGO_INITDB_ROOT_PASSWORD=passecret  mongo``
 But now we navigate to our frontend app on the UI, we will see that we are not able to access the mongo db from node container and that is because the node container doesn't provide the required username and password.
 
-<img width="1129" alt="Screenshot 2023-07-29 at 4 33 24 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/d67f7677-6f0b-4c1e-ba6f-cce83e344d36">  
-Inorder to solve this issue, we can manipulate the  mongodb connection string in the node app , in a way that mongodb would understand and get the username and password. 
+<img width="1129" alt="Screenshot 2023-07-29 at 4 33 24 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/d67f7677-6f0b-4c1e-ba6f-cce83e344d36">   
+
+Inorder to solve this issue, we can manipulate the  mongodb connection string in the node app , in a way that mongodb would understand and get the username and password.   
+ 
 <img width="488" alt="Screenshot 2023-07-29 at 4 48 57 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/b2617a1b-2f22-4111-be62-1d161a801d90">
 
 <img width="584" alt="Screenshot 2023-07-29 at 4 57 38 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/f2e114d4-d75a-493c-a82f-c956f0b0cb84">
