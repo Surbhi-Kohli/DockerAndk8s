@@ -43,12 +43,13 @@ So using container names here is not work here.So we should rather go back to lo
 <img width="516" alt="Screenshot 2023-07-29 at 2 05 38 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/cb8dbbc2-8c62-4331-a09c-9884cd16ea2e">
 
 Because react has browser side javascript code which doesn't run inside docker container.
-After rebuilding the react image because of the localhost code change,run the container via
+After rebuilding the react image because of the localhost code change,run the container via:  
 `` frontend % docker run --name goals-frontend  --rm -p 3000:3000 -it  goals-react``    
 
 <img width="480" alt="Screenshot 2023-07-29 at 2 10 45 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/ac32921c-b12e-40e9-a301-e990d1932f2c">
 
 The front-end container is able to communicate with the back-end container via our localhost because we published the backend container's internal port 80 to our localhost port 80.
+``docker run --name goals-backend -p 80:80 -d --rm  --network goals-net goals-node``
 
 My second question is: if there are multiple different web servers that are running on different localhost ports, how would the frontend container know to which localhost port it needs to send the data input if we do not specify the localhost port in the frontend url?
 Yes, you would need to specify the correct ports in your requests in the frontend code.  In this example we didn't specify the port because it is using the default port for http traffic, 80.
