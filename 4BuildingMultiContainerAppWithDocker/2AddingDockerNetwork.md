@@ -24,9 +24,12 @@ We need to mention the mongo db container  name instead of 'host.internal'
 <img width="479" alt="Screenshot 2023-07-27 at 8 42 17 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/b1e5bd39-ea8b-46a3-8cd4-ea99ec6f356e">
 
 Now we rebuild the image and create container again.
-<img width="703" alt="Screenshot 2023-07-27 at 8 40 47 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/029cc611-8ee7-4390-a58c-e7fc951b1e13">
-Now we need to add react container to network.For that also , we need to make code change in app.js of react code to replace localhost with node's container name ie ``goals-backend`` so that it can be resolved by docker to the IP address of the node-backend container.
-<img width="863" alt="Screenshot 2023-07-27 at 9 02 04 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/1e6de6ce-34eb-4ef0-aaf2-1d9c8351efec">  
+<img width="703" alt="Screenshot 2023-07-27 at 8 40 47 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/029cc611-8ee7-4390-a58c-e7fc951b1e13">  
+
+Now we need to add react container to network.For that also , we need to make code change in app.js of react code to replace localhost with node's container name ie ``goals-backend`` so that it can be resolved by docker to the IP address of the node-backend container.  
+
+<img width="863" alt="Screenshot 2023-07-27 at 9 02 04 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/1e6de6ce-34eb-4ef0-aaf2-1d9c8351efec">    
+
 Now now after the code change, we need to build react image again.
 <img width="689" alt="Screenshot 2023-07-27 at 9 58 11 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/3c0b54fe-45bb-4b69-adb0-7cdfdce1e8a7">
 We need to expose port of react container, as we want to run the application in local.
