@@ -38,9 +38,15 @@ The error occurs because the frontend react code, the js code runs in the browse
 The browser has no idea of what goals-backend should be.  
 <img width="588" alt="Screenshot 2023-07-27 at 10 30 38 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/c6a87344-1e9f-4024-8169-70775d8f3294">
 
-So using container names here is not work here.So we should rather go back to localhost,because thats what the browser would be able to understand.Now we need to ensure that on localhost, endpoints of backend ie "/goals" can be reached.And so we still need to publish ports of backend code so that those can be accessed on local machine by the browser as the frontend app needs that.
+So using container names here is not work here.So we should rather go back to localhost,because thats what the browser would be able to understand.Now we need to ensure that on localhost, endpoints of backend ie "/goals" can be reached.And so we still need to publish ports of backend code so that those can be accessed on local machine by the browser as the frontend app needs that.  
+
+<img width="516" alt="Screenshot 2023-07-29 at 2 05 38 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/cb8dbbc2-8c62-4331-a09c-9884cd16ea2e">
 
 Because react has browser side javascript code which doesn't run inside docker container.
+After rebuilding the react image because of the localhost code change,run the container via
+`` frontend % docker run --name goals-frontend  --rm -p 3000:3000 -it  goals-react``    
+
+<img width="480" alt="Screenshot 2023-07-29 at 2 10 45 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/ac32921c-b12e-40e9-a301-e990d1932f2c">
 
 The front-end container is able to communicate with the back-end container via our localhost because we published the backend container's internal port 80 to our localhost port 80.
 
