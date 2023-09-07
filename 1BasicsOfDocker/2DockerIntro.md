@@ -13,7 +13,7 @@ Why do we want independent, standardised “applications packages”??
 Problems without containers:
   * We often have different prod and dev envs.We want to build and test in exactly the same env(runtime, language, framework version) 
       setup as we later run our app in.This ensures that our app works exactly as tested.
-      Example: u have a nodejs code that requires node v14(which has top level awai and the code can’t run on lower v of nodejs).
+      Example: u have a nodejs code that requires node v14(which has top level await and the code can’t run on lower v of nodejs).
       The problem is, we might be having the version of node 14 on our local env, but it might not be available on the remote server where
       it is to be hosted.And the application would not work there.Containers would solve suck issues
 
