@@ -1,7 +1,7 @@
 Kubernetes: K8S(numeronyms) k=1st alpha, S=last alpha, 8= alphabet count in the middle
 Internationalisation = i18n
 Previous applications were mainly monolithic
-
+K8s is written in golang.You can write manifest in json or yaml
 Autoscalling of containers
 
 Orchestration= container management
@@ -48,7 +48,11 @@ Docker swarm does exist for this, but still mostly k8s is used.
 
 
 
-| Attempt | #1  | #2  |
-| ------- | --- | --- |
-| Seconds | 301 | 283 |
+## High level architecture of K8s(Master/slave or client server architecture):
+K8s consist of a cluster: which has a master and worker nodes.There can be just one master 1 node,or 1 master multiple nodes, multiple masters or multiple nodes in a cluster.
+The node contains the basic unit of k8s, which is called POD.U can create multiple pods in a node.Pod is the smallest unit which k8s controls.
+Pods contain containers.
+Generally we have 1 container in 1 pod,but we can have multiple as well.We can have more than 1 pod in a node.We can have 1 or more node in a cluster
+<img width="386" alt="Screenshot 2023-10-12 at 10 38 56 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/bb4c3425-1e83-47e4-a6d6-65c3e307a393">
 
+Cluster->node->pod->container->application
