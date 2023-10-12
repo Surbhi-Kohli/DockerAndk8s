@@ -30,8 +30,8 @@ Docker swarm does exist for this, but still mostly k8s is used.
 * Health monitoring of containers
 * Batch execution(one time, sequential,parallel)
 
-Feature | K8s | swarm| 
---- | --- | --- | --- |
+Feature | K8s | swarm | 
+--- | ---- | ---- | --- |
 installation and cluster configuration | complicated and time consuming | fast and easy | 
 --- | --- | --- | --- |
 Supports | K8s can work with almost all container types  | fast and easy | 
