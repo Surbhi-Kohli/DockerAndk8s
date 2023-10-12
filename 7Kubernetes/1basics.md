@@ -5,7 +5,7 @@ We may have certain problems in case of manual deployment when we manually handl
 <img width="747" alt="Screenshot 2023-09-10 at 3 08 57 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/b6477029-4036-47d5-8d53-4cf96b97cb14">
 1.Because of container crash, your app might not be reachanble any more in case you dont quickly replace your container.In manual deployments, you also have to manually monitor your containers and manually replace them.  
 2.You might need to scale up or down the running instances of your container as your workload/traffic increase or decreases.
-
+3.You may need to run multiple containers from same image (to scale up/down as workload increases/decrease)in case of app that transforms image files uploaded to some folder.If more and more images keep coming in, u might need to run multiple containers out of that image that run different image files.
 Services like AWS ECS can help us to solve the problems to some extent.  
 a.It does check the health ofour containers to see if they are still up and running and will automatically restart containers when they crash.    
 b.It also can handle auto-scaling and load-balancing.  
