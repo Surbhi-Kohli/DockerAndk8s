@@ -34,7 +34,19 @@ Docker swarm does exist for this, but still mostly k8s is used.
 | :----: | :----: | :----: | 
 | installation and cluster configuration | complicated and time consuming | fast and easy | 
 | :----: | :----: | :----: | 
-| Supports | K8s can work with almost all container types  | fast and easy | 
+| Supports | K8s can work with almost all container types: Rocket, Docker,ContainerD  | works with docker only | 
+| :----: | :----: | :----: | 
+| GUI | GUI available  | GUI not available | 
+| :----: | :----: | :----: | 
+| Data Volumes | Only shared with containers in same pod | Can be shared with any other container | 
+| :----: | :----: | :----: | 
+| Updates and Rollback | Process scheduling to maintain services while updating | Progressive updates and service health monitoring throughout the update | 
+| :----: | :----: | :----: | 
+| Autoscaling | Supports vertical and horizontal autoscaling  | does not support autoscaling |
+| :----: | :----: | :----: | 
+| Logging and monitoring | Inbuilt tool present for monitoring  | Uses 3rd party tools like splunk | 
+
+
 
 | Attempt | #1  | #2  |
 | ------- | --- | --- |
