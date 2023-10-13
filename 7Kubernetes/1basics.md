@@ -29,4 +29,21 @@ Config file:standardized way of describing.
 
 <img width="767" alt="Screenshot 2023-10-12 at 11 23 55 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/d1dffca3-2a2b-4cdd-8c38-98accf0aebc5">
 
-## K8s is like Docker copose for multiple machines
+## K8s is like Docker compose for multiple machines
+
+## Core kUbernetes Concepts and architecture:
+In kubernetes, a contianer is managed via a POD.POD is the smallest possible unit in the k8s world,which u can define in config file that k8s can create.POD holds/runs container(s).
+This pod runs inside a worker-node.WOrker nodes can be machines/virtual instances with certain amout of cpu and memory.You can have more than one pod running in a worker node.
+Worker node also needs a proxy which is actually another tool that k8s sets up for u to control the network traffic of the pods on the worker node.
+Master node controls all the worker nodes.You let k8s and control pane do heavy lifting ,while u developer just deifine the end state the k8s should keep in mind.
+
+Theoretically u can have 1 machine which acts both master and worker node.But for bigger deployments,
+master node might also be split across multiple machines to ensure high availability.Ur worker machines will be other machines independent of the master node machine.
+The COntrol Plane is actually a collection of different services which are running on the master node.
+All together a cluster is formed(containing master and worker) and therefor 1 network is formed in which all are conected.Ur master node sends instructions to cloud provider api to tell that cloud provider to create its cloud provide resources to replicate this big picture on that cloud provieder.
+On aws , it will create all ec2 instances , load balancer,etc required to hav
+e this k8s network ,with a master ec2 instance and other worker node ec2 instances.
+<img width="1115" alt="Screenshot 2023-10-13 at 9 26 21 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/b814fe18-ab44-4d77-b276-4786ec66fd7d">
+
+
+<img width="658" alt="Screenshot 2023-10-13 at 9 30 09 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/b09865dd-d53d-4c33-86cc-6c53b140b584">
