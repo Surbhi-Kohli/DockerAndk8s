@@ -47,3 +47,20 @@ e this k8s network ,with a master ec2 instance and other worker node ec2 instanc
 
 
 <img width="658" alt="Screenshot 2023-10-13 at 9 30 09 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/b09865dd-d53d-4c33-86cc-6c53b140b584">
+
+## Closer look at a worker node:
+It is simply a machine or ec2 instance running somewhere and what happens on the worker node(eg creating a POD etc) is managed by master node.
+Kubelet:COmmunication software between master and worker node
+kube-proxy:handles incoming and outgoing traffic 
+<img width="715" alt="Screenshot 2023-10-13 at 9 39 19 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/4963cbbe-1899-45ea-9c7c-ee1c6c97f171">
+
+## Closer look at master node:
+API server: Kubelet equivalent in master node.Basically kubelet and API server communicate
+Scheduler:Watches for new pods.Selects worker nodes to run them on.
+Kub-controller manager:watches and controls worker nodes, ensures that correct no of pods are up and running
+Cloud controller manager: 
+
+## Important terms and concepts:  
+<img width="1121" alt="Screenshot 2023-10-13 at 9 52 14 PM" src="https://github.com/Surbhi-Kohli/DockerAndk8s/assets/32058209/084028b0-c731-4f8d-9f98-2b0eaa66e9f8">
+
+Services: Logical sets of PODs with a unique pod and container IP address.Services are important forreaching our pod and containers.Services are related to proxy.Services is just a term for exposing certain parts to outside world to ensure that certain parts are reachable with certain ip address or domain
